@@ -21,9 +21,14 @@
     <div class="landing" id="landingContent">
       <div class="container py-4">
         <header class="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom px-4">
-          <a href="/" class="text-body-emphasis text-decoration-none">
-            <span class="fs-4"></span>
-          </a>
+          <div class="ticket-outer bg-yellow" data-bs-toggle="modal" data-bs-target="#scavengerHuntModal">
+            <div class="ticket-inner bg-yellow-dark">
+              <div class="ticket-content text-center bg-yellow">
+                <h1 class="fw-bold m-0 color-yellow-dark" style="font-size: 1.5rem;">Want to have a scavenger hunt??</h1>
+              </div>
+            </div>
+          </div>
+
           <div class="d-flex gap-3">
             <!-- Instagram -->
             <button type="button" class="rounded-circle d-flex align-items-center justify-content-center border-0"
@@ -51,6 +56,7 @@
 
         <div class="row">
           <div class="col-md-6">
+            <!-- About Me Section -->
             <div class="ticket-outer bg-pink">
               <div class="ticket-inner bg-pink-dark">
                 <div class="ticket-content bg-pink">
@@ -89,6 +95,7 @@
       </div>
     </div>
 
+    <!-- Screensaver -->
     <div id="screensaver" onclick="resetTimer()">
       <div id="carouselExampleIndicators" class="carousel slide"
         data-bs-ride="carousel">
@@ -178,6 +185,34 @@
       <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content text-center p-3">
           <img src="images/qr_codes/portfolio.png" alt="Portfolio QR" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scavenger Hunt Modal -->
+     <div class="modal fade" id="scavengerHuntModal" tabindex="-1" aria-labelledby="scavengerHuntLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4" style="border-radius: 1rem;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scavengerHuntLabel">Scavenger Hunt Challenge</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Can you spot all 10 things in my booth?</p>
+            <ol>
+              <li>A brooch shaped like a mushroom 🍄</li>
+              <li>Something with a cat on it 🐱</li>
+              <li>A pastel rainbow 🌈</li>
+              <li>A mini plant in a pot 🪴</li>
+              <li>Something with glitter ✨</li>
+              <li>A brooch with googly eyes 👀</li>
+              <li>An animal wearing clothes 🧥</li>
+              <li>Something that makes you laugh 😂</li>
+              <li>A mirror acrylic piece 🔮</li>
+              <li>A brooch with your favorite color 💖</li>
+            </ol>
+            <p class="mt-3">Show me when you’ve found them all and win a prize!</p>
+          </div>
         </div>
       </div>
     </div>
