@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PolyPaige Design</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-    }
-    .landing {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      background-color: #fff6f0;
-      text-align: center;
-    }
-    #screensaver {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 999;
-      background-color: #000;
-    }
-    .carousel-inner img, .carousel-inner video {
-      object-fit: contain;
-      width: 100%;
-      height: 100vh;
-    }
-  </style>
-</head>
-<body>
-  <div class="landing" id="landingContent">
-    <img src="favicon.png" alt="PolyPaige Logo" width="150">
-    <h1>Welcome to PolyPaige Design</h1>
-    <p>Unique acrylic jewelry and playful creations by Paige.</p>
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div id="screensaver" onclick="resetTimer()">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="images/photo1.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <video class="d-block w-100" autoplay loop muted>
-            <source src="videos/promo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="carousel-item">
-          <img src="images/photo2.jpg" class="d-block w-100" alt="...">
+    <title>PolyPaige Kiosk</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bio+Rhyme&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="landing" id="landingContent">
+      <div class="container py-4">
+        <header class="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom px-4">
+          <a href="/" class="text-body-emphasis text-decoration-none">
+            <span class="fs-4"></span>
+          </a>
+          <div class="d-flex gap-3">
+            <a href="https://instagram.com" target="_blank" class="rounded-circle d-flex align-items-center justify-content-center"
+              style="width: 48px; height: 48px; background-color: #ffddee;">
+              <i class="bi bi-instagram fs-4 text-dark"></i>
+            </a>
+            <a href="https://polypaigedesign.com" target="_blank" class="rounded-circle d-flex align-items-center justify-content-center"
+              style="width: 48px; height: 48px; background-color: #d0f0c0;">
+              <i class="bi bi-bag fs-4 text-dark"></i>
+            </a>
+            <a href="https://paigeahernart.myportfolio.com" target="_blank" class="rounded-circle d-flex align-items-center justify-content-center"
+              style="width: 48px; height: 48px; background-color: #cce5ff;">
+              <i class="bi bi-globe2 fs-4 text-dark"></i>
+            </a>
+          </div>
+        </header>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3 h-100 bg-pink">
+              <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">About Me</h1>
+                <img src="favicon.ico" alt="PolyPaige Logo" class="my-4" style="max-width: 350px; height: auto;">
+                <p>
+                  Click here to learn more about the artist.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex flex-column justify-content-between">
+            <div class="mb-3 p-5 rounded-3 bg-green">
+              <h2>Shop my online store</h2>
+              <p>Discover a playful collection of handcrafted acrylic jewelry and unique art pieces made to brighten your day. Every item is designed with love and a touch of whimsy—perfect for gifting or treating yourself.</p>
+            </div>
+            <div class="p-5 bg-body-tertiary border rounded-3 bg-blue">
+              <h2>View my online portfolio</h2>
+              <p>Explore a curated selection of my creative work—from illustration and design to wearable art. This portfolio showcases the heart and process behind each piece I create.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    let screensaverTimeout;
-    const screensaverDelay = 60000; // 1 minute
-
-    function showScreensaver() {
-      document.getElementById('landingContent').style.display = 'none';
-      document.getElementById('screensaver').style.display = 'block';
-    }
-
-    function resetTimer() {
-      clearTimeout(screensaverTimeout);
-      document.getElementById('screensaver').style.display = 'none';
-      document.getElementById('landingContent').style.display = 'flex';
-      screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
-    }
-
-    document.addEventListener('mousemove', resetTimer);
-    document.addEventListener('keydown', resetTimer);
-    document.addEventListener('touchstart', resetTimer);
-
-    screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
-  </script>
-</body>
+    <div id="screensaver" onclick="resetTimer()">
+      <div id="carouselExampleIndicators" class="carousel slide"
+        data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/title_photo.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <video class="d-block w-100" autoplay loop muted>
+              <source src="videos/sample_video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="carousel-item">
+            <img src="images/title_photo.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>
