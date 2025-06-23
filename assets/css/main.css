@@ -42,6 +42,20 @@ body, html {
   align-items: center;
 }
 
+.carousel-overlay-text {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4.5rem;
+  font-weight: bold;
+  z-index: 1000;
+  text-shadow: 1px 1px 4px white;
+  color: #4a79a5; /* Matches .color-blue-dark */
+  pointer-events: none; /* So it doesn't block clicks */
+}
+
+
 .carousel-wrapper {
   flex-grow: 1;
   width: 100%;
