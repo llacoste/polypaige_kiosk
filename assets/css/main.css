@@ -7,6 +7,7 @@ body, html {
   background-size: auto;
   font-family: 'Bio Rhyme', serif;
 }
+
 .landing {
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@ body, html {
   height: 100%;
   text-align: center;
 }
+
 #screensaver {
   display: none;
   position: absolute;
@@ -25,17 +27,56 @@ body, html {
   z-index: 999;
   background-color: #000;
 }
+
 .carousel-inner img, .carousel-inner video {
   object-fit: contain;
   width: 100%;
   height: 100vh;
 }
-.bg-pink {
-  background-color: #ffddee !important;
+
+/* Background color sets */
+.bg-pink          { background-color: #ffddee !important; }
+.bg-green         { background-color: #d0f0c0 !important; }
+.bg-blue          { background-color: #cce5ff !important; }
+.bg-pink-dark     { background-color: #cc6699 !important; }
+.bg-green-dark    { background-color: #6e8e50 !important; }
+.bg-blue-dark     { background-color: #4a79a5 !important; }
+.color-pink-dark  { color: #cc6699 !important; }
+.color-green-dark { color: #6e8e50 !important; }
+.color-blue-dark  { color: #4a79a5 !important; }
+
+/* Ticket shape mask used by outer, inner, and content layers */
+.ticket-outer,
+.ticket-inner,
+.ticket-content {
+  -webkit-mask-image:
+    radial-gradient(circle at top left, transparent 0 20px, black 21px),
+    radial-gradient(circle at top right, transparent 0 20px, black 21px),
+    radial-gradient(circle at bottom left, transparent 0 20px, black 21px),
+    radial-gradient(circle at bottom right, transparent 0 20px, black 21px);
+  -webkit-mask-composite: destination-in;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-image:
+    radial-gradient(circle at top left, transparent 0 20px, black 21px),
+    radial-gradient(circle at top right, transparent 0 20px, black 21px),
+    radial-gradient(circle at bottom left, transparent 0 20px, black 21px),
+    radial-gradient(circle at bottom right, transparent 0 20px, black 21px);
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
 }
-.bg-green {
-  background-color: #d0f0c0 !important;
+
+/* Padding between outer and inner layers shows outer color */
+.ticket-outer {
+  padding: 8px;
 }
-.bg-blue {
-  background-color: #cce5ff !important;
+
+/* Padding between inner and content shows inner border */
+.ticket-inner {
+  padding: 8px;
+}
+
+/* Main content spacing */
+.ticket-content {
+  padding: 2rem;
 }
