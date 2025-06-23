@@ -27,9 +27,13 @@ document.addEventListener('mousemove', resetTimer);
 document.addEventListener('keydown', resetTimer);
 document.addEventListener('touchstart', resetTimer);
 
+// Start screensaver immediately on load
+showScreensaver();
+
+// Also set a timeout to re-show it after delay in case of interaction
 screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
 
-
+// Modal click handlers
 document.querySelector('.ticket-outer.bg-pink')?.addEventListener('click', () => {
   const modal = new bootstrap.Modal(document.getElementById('aboutModal'));
   modal.show();
