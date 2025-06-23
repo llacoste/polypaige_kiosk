@@ -20,7 +20,7 @@
   <body>
     <div class="landing" id="landingContent">
       <div class="container py-4">
-        <header class="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom px-4">
+        <!-- <header class="d-flex justify-content-between align-items-center pb-3 mb-4 border-bottom px-4">
           <div class="ticket-outer bg-yellow" data-bs-toggle="modal" data-bs-target="#scavengerHuntModal">
             <div class="ticket-inner bg-yellow-dark">
               <div class="ticket-content text-center bg-yellow">
@@ -30,41 +30,45 @@
           </div>
 
           <div class="d-flex gap-3">
-            <!-- Instagram -->
             <button type="button" class="rounded-circle d-flex align-items-center justify-content-center border-0"
               style="width: 48px; height: 48px; background-color: #ffddee;"
               data-bs-toggle="modal" data-bs-target="#qrInstagramModal">
               <i class="bi bi-instagram fs-4 text-dark"></i>
             </button>
 
-            <!-- Shop -->
             <button type="button" class="rounded-circle d-flex align-items-center justify-content-center border-0"
               style="width: 48px; height: 48px; background-color: #d0f0c0;"
               data-bs-toggle="modal" data-bs-target="#qrShopModal">
               <i class="bi bi-bag fs-4 text-dark"></i>
             </button>
 
-            <!-- Portfolio -->
             <button type="button" class="rounded-circle d-flex align-items-center justify-content-center border-0"
               style="width: 48px; height: 48px; background-color: #cce5ff;"
               data-bs-toggle="modal" data-bs-target="#qrPortfolioModal">
               <i class="bi bi-globe2 fs-4 text-dark"></i>
             </button>
           </div>
-        </header>
+        </header> -->
 
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 d-flex flex-column justify-content-between">
             <!-- About Me Section -->
             <div class="ticket-outer bg-pink">
               <div class="ticket-inner bg-pink-dark">
                 <div class="ticket-content bg-pink">
                   <h1 class="display-5 fw-bold color-pink-dark">About Me</h1>
                   <img src="favicon.ico" alt="PolyPaige Logo" class="my-4" style="max-width: 350px; height: auto;">
-                  <p>
-                    Click here to learn more about the artist.
-                  </p>
+                  <p>Click here to learn more about the artist.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scavenger Hunt Ticket Below About Me -->
+            <div class="ticket-outer bg-yellow mt-4" data-bs-toggle="modal" data-bs-target="#scavengerHuntModal" style="cursor: pointer;">
+              <div class="ticket-inner bg-yellow-dark">
+                <div class="ticket-content bg-yellow text-center">
+                  <h1 class="fw-bold m-0 color-yellow-dark" style="font-size: 1.5rem;">Want to have a scavenger hunt??</h1>
                 </div>
               </div>
             </div>
@@ -82,7 +86,7 @@
             </div>
 
             <!-- Portfolio Section -->
-            <div class="ticket-outer bg-blue">
+            <div class="ticket-outer bg-blue mt-4">
               <div class="ticket-inner bg-blue-dark">
                 <div class="ticket-content bg-blue">
                   <h1 class="display-5 fw-bold color-blue-dark">View my online portfolio</h1>
@@ -90,7 +94,39 @@
                 </div>
               </div>
             </div>
+
+            <!-- QR Code Section -->
+            <div class="ticket-outer bg-pink mt-4">
+              <div class="ticket-inner bg-pink-dark">
+                <div class="ticket-content bg-pink text-center">
+                  <h2 class="fw-bold color-pink-dark mb-3">Scan to connect</h2>
+                  <div class="d-flex justify-content-center gap-3">
+                    <!-- Instagram -->
+                    <button type="button" class="bg-pink-dark rounded-circle d-flex align-items-center justify-content-center border-0"
+                      style="width: 48px; height: 48px;"
+                      data-bs-toggle="modal" data-bs-target="#qrInstagramModal">
+                      <i class="bi bi-instagram fs-4 text-dark"></i>
+                    </button>
+
+                    <!-- Shop -->
+                    <button type="button" class="bg-green-dark rounded-circle d-flex align-items-center justify-content-center border-0"
+                      style="width: 48px; height: 48px;"
+                      data-bs-toggle="modal" data-bs-target="#qrShopModal">
+                      <i class="bi bi-bag fs-4 text-dark"></i>
+                    </button>
+
+                    <!-- Portfolio -->
+                    <button type="button" class="bg-blue-dark rounded-circle d-flex align-items-center justify-content-center border-0"
+                      style="width: 48px; height: 48px;"
+                      data-bs-toggle="modal" data-bs-target="#qrPortfolioModal">
+                      <i class="bi bi-globe2 fs-4 text-dark"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
