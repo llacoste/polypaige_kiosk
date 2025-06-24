@@ -1,7 +1,8 @@
-body, html {
+html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;  /* prevent horizontal scroll */
+  overflow-y: auto;     /* allow vertical scroll */
   background-image: url('../../images/background.png');
   background-repeat: repeat;
   background-size: auto;
@@ -22,22 +23,23 @@ body, html {
 }
 
 .portfolio-iframe-container {
-  height: 80vh
+  height: 80vh;
 }
 
 .portfolio-iframe {
-  width:100%;
-  height:100%;
-  border:none;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .landing {
+  min-height: 100vh;            /* Full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;      /* Center vertically */
   align-items: center;
-  height: 100%;
   text-align: center;
+  padding-bottom: 2rem;         /* Optional spacing at bottom */
 }
 
 .carousel-heading-text {
@@ -53,7 +55,7 @@ body, html {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100dvh; /* more consistent on mobile than 100vh */
   width: 100vw;
   z-index: 999;
   background-image: url('../../images/background.png');
@@ -75,14 +77,13 @@ body, html {
   z-index: 1000;
   text-shadow: 1px 1px 4px white;
   color: #4a79a5; /* Matches .color-blue-dark */
-  pointer-events: none; /* So it doesn't block clicks */
+  pointer-events: none;
 }
-
 
 .carousel-wrapper {
   flex-grow: 1;
   width: 100%;
-  height: 100%; /* ← Make sure it fills the screen */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
