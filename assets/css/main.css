@@ -101,7 +101,7 @@ body, html {
   max-height: 100vh; /* Ensures it never exceeds screen */
 }
 
-/* Background color sets */
+/* Background and color sets */
 .bg-pink         { background-color: #ffddee !important; }
 .bg-green        { background-color: #d0f0c0 !important; }
 .bg-blue         { background-color: #cce5ff !important; }
@@ -157,7 +157,7 @@ body, html {
 
 /* Main content spacing */
 .ticket-content {
-  padding: 2rem;
+  padding: 5px;
 }
 
 .modal-content {
