@@ -13,3 +13,5 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', resizeViewport);
+setupScreensaverActivityListeners();
+resetTimer();

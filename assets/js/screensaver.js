@@ -1,10 +1,18 @@
+// screensaver.js
+
 let screensaverTimeout;
+let countdownInterval;
 let lastInteractionTime = Date.now();
-const screensaverDelay = 10000;
 let lastPointerX = null;
 let lastPointerY = null;
+const screensaverDelay = 10000;
+const countdownSeconds = 5;     // countdown duration
 
 function showScreensaver() {
+  clearInterval(countdownInterval);
+  const countdown = document.getElementById('screensaverCountdown');
+  countdown.classList.add('fade-hidden');
+
   const landing = document.getElementById('landingContent');
   const screensaver = document.getElementById('screensaver');
   const screensaverContent = document.getElementById('screensaverContent');
@@ -23,6 +31,26 @@ function showScreensaver() {
   });
 }
 
+function startCountdown() {
+  let remaining = countdownSeconds;
+  const countdown = document.getElementById('screensaverCountdown');
+  const numberSpan = document.getElementById('countdownNumber');
+
+  numberSpan.textContent = remaining;
+  countdown.classList.remove('fade-hidden');
+  countdown.classList.add('fade-visible');
+
+  countdownInterval = setInterval(() => {
+    remaining--;
+    numberSpan.textContent = remaining;
+
+    if (remaining <= 0) {
+      clearInterval(countdownInterval);
+      showScreensaver();
+    }
+  }, 1000);
+}
+
 function resetTimer(event) {
   if (event?.type === 'pointermove') {
     if (event.clientX === lastPointerX && event.clientY === lastPointerY) return;
@@ -34,7 +62,13 @@ function resetTimer(event) {
   if (now - lastInteractionTime < 100) return;
 
   lastInteractionTime = now;
+
   clearTimeout(screensaverTimeout);
+  clearInterval(countdownInterval);
+
+  const countdown = document.getElementById('screensaverCountdown');
+  countdown.classList.remove('fade-visible');
+  countdown.classList.add('fade-hidden');
 
   const landing = document.getElementById('landingContent');
   const screensaver = document.getElementById('screensaver');
@@ -50,7 +84,7 @@ function resetTimer(event) {
     screensaver.style.display = 'none';
   }, 500);
 
-  screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
+  screensaverTimeout = setTimeout(startCountdown, screensaverDelay);
 }
 
 function setupScreensaverActivityListeners() {
