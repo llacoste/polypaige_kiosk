@@ -1,14 +1,98 @@
-html, body {
-  height: 100%;
+/* 1. Full-screen background for the entire app */
+body, html {
   margin: 0;
-  overflow-x: hidden;  /* prevent horizontal scroll */
-  overflow-y: auto;     /* allow vertical scroll */
+  padding: 0;
+  height: 100%;
   background-image: url('../../images/background.png');
   background-repeat: repeat;
   background-size: auto;
   font-family: 'Caveat', cursive;
+  overflow: hidden; /* prevents unwanted scrollbars */
 }
 
+/* 2. The scaling wrapper stays centered */
+.viewport-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* lets scaled child handle interaction */
+  z-index: 1;
+}
+
+/* 3. Scaled fixed-resolution content */
+.viewport-content {
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--scale-factor));
+  transform-origin: center center;
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Special layout for screensaver's scaled content */
+#screensaver {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100vw;
+  z-index: 999;
+}
+
+#screensaver .viewport-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent;
+}
+
+/* Screensaver carousel layout */
+.carousel-wrapper {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-inner,
+.carousel-item {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+/* Overlay text */
+.carousel-overlay-text {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px white;
+  color: #4a79a5;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Other global layout styles */
 .about-me-image {
   max-width: 350px;
   height: auto;
@@ -33,13 +117,13 @@ html, body {
 }
 
 .landing {
-  min-height: 100vh;            /* Full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;      /* Center vertically */
+  justify-content: center;
   align-items: center;
   text-align: center;
-  padding-bottom: 2rem;         /* Optional spacing at bottom */
+  padding-bottom: 2rem;
 }
 
 .carousel-heading-text {
@@ -48,58 +132,6 @@ html, body {
   text-shadow: 1px 1px 4px #cce5ff;
   margin: 2rem 0 1rem 0;
   text-align: center;
-}
-
-#screensaver {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100dvh; /* more consistent on mobile than 100vh */
-  width: 100vw;
-  z-index: 999;
-  background-image: url('../../images/background.png');
-  background-repeat: repeat;
-  background-size: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-overlay-text {
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4.5rem;
-  font-weight: bold;
-  z-index: 1000;
-  text-shadow: 1px 1px 4px white;
-  color: #4a79a5; /* Matches .color-blue-dark */
-  pointer-events: none;
-}
-
-.carousel-wrapper {
-  flex-grow: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel-inner,
-.carousel-item {
-  height: 100%;
-}
-
-.carousel-img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  max-height: 100vh; /* Ensures it never exceeds screen */
 }
 
 /* Background and color sets */

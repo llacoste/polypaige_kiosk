@@ -20,51 +20,55 @@
   </head>
 
   <body>
-    <div class="landing" id="landingContent">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 d-flex flex-column justify-content-between">
-            <!-- About Me Section -->
-            <div class="ticket-outer bg-pink">
-              <div class="ticket-inner bg-pink-dark">
-                <div class="ticket-content bg-pink">
-                  <h1 class="display-5 fw-bold color-pink-dark">About Me</h1>
-                  <img src="favicon.ico" alt="PolyPaige Logo" class="my-4 about-me-image">
-                  <p class="fs-4">Click here to learn more about the artist.</p>
+    <div class="viewport-wrapper">
+      <div class="viewport-content" id="landingContent">
+        <div class="landing" id="landingContent">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 d-flex flex-column justify-content-between">
+                <!-- About Me Section -->
+                <div class="ticket-outer bg-pink">
+                  <div class="ticket-inner bg-pink-dark">
+                    <div class="ticket-content bg-pink">
+                      <h1 class="display-5 fw-bold color-pink-dark">About Me</h1>
+                      <img src="favicon.ico" alt="PolyPaige Logo" class="my-4 about-me-image">
+                      <p class="fs-4">Click here to learn more about the artist.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 d-flex flex-column justify-content-between">
+                <!-- Shop Section -->
+                <div class="ticket-outer bg-green">
+                  <div class="ticket-inner bg-green-dark">
+                    <div class="ticket-content bg-green">
+                      <h1 class="display-5 fw-bold color-green-dark">Shop my online store</h1>
+                      <p class="fs-5">Discover a playful collection of handcrafted acrylic jewelry and unique art pieces made to brighten your day. Every item is designed with love and a touch of whimsy—perfect for gifting or treating yourself. Touch here for a QR code to my store!</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Section -->
+                <div class="ticket-outer bg-blue mt-4">
+                  <div class="ticket-inner bg-blue-dark">
+                    <div class="ticket-content bg-blue">
+                      <h1 class="display-5 fw-bold color-blue-dark">View my online portfolio</h1>
+                      <p class="fs-5">Explore a curated selection of my creative work—from illustration and design to wearable art. This portfolio showcases the heart and process behind each piece I create.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-md-6 d-flex flex-column justify-content-between">
-            <!-- Shop Section -->
-            <div class="ticket-outer bg-green">
-              <div class="ticket-inner bg-green-dark">
-                <div class="ticket-content bg-green">
-                  <h1 class="display-5 fw-bold color-green-dark">Shop my online store</h1>
-                  <p class="fs-5">Discover a playful collection of handcrafted acrylic jewelry and unique art pieces made to brighten your day. Every item is designed with love and a touch of whimsy—perfect for gifting or treating yourself. Touch here for a QR code to my store!</p>
+            <!-- Scavenger Hunt Ticket Below About Me -->
+            <div class="d-flex justify-content-center mt-4">
+              <div class="ticket-outer bg-yellow w-75" data-bs-toggle="modal" data-bs-target="#scavengerHuntModal">
+                <div class="ticket-inner bg-yellow-dark">
+                  <div class="ticket-content bg-yellow text-center">
+                    <h1 class="fw-bold m-0 color-yellow-dark">Want to have a scavenger hunt??</h1>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- Portfolio Section -->
-            <div class="ticket-outer bg-blue mt-4">
-              <div class="ticket-inner bg-blue-dark">
-                <div class="ticket-content bg-blue">
-                  <h1 class="display-5 fw-bold color-blue-dark">View my online portfolio</h1>
-                  <p class="fs-5">Explore a curated selection of my creative work—from illustration and design to wearable art. This portfolio showcases the heart and process behind each piece I create.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scavenger Hunt Ticket Below About Me -->
-        <div class="d-flex justify-content-center mt-4">
-          <div class="ticket-outer bg-yellow w-75" data-bs-toggle="modal" data-bs-target="#scavengerHuntModal">
-            <div class="ticket-inner bg-yellow-dark">
-              <div class="ticket-content bg-yellow text-center">
-                <h1 class="fw-bold m-0 color-yellow-dark">Want to have a scavenger hunt??</h1>
               </div>
             </div>
           </div>
@@ -73,34 +77,39 @@
     </div>
 
     <!-- Screensaver -->
-     <div id="screensaver" onclick="resetTimer()">
-      <div class="carousel-overlay-text">Touch to learn more</div>
+    <div id="screensaver" class="viewport-wrapper" onclick="resetTimer()">
+      <div class="viewport-content d-flex flex-column justify-content-center align-items-center screensaver-content">
+        
+        <div class="carousel-overlay-text">Touch to learn more</div>
 
-      <div class="carousel-wrapper">
-        <div id="carouselExampleIndicators" class="carousel slide h-100 w-100" data-bs-ride="carousel">
-          <div class="carousel-inner h-100">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img src="images/logo.png" class="d-block carousel-img" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-              <img src="images/make_it.webp" class="d-block carousel-img" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-              <img src="images/title_photo.png" class="d-block carousel-img" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-              <img src="images/1.jpg" class="d-block carousel-img" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-              <img src="images/2.jpg" class="d-block carousel-img" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-              <img src="images/3.jpg" class="d-block carousel-img" alt="...">
+        <div class="carousel-wrapper">
+          <div id="carouselExampleIndicators" class="carousel slide h-100 w-100" data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="images/logo.png" class="d-block carousel-img" alt="Logo">
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="images/make_it.webp" class="d-block carousel-img" alt="Make It">
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="images/title_photo.png" class="d-block carousel-img" alt="Title Photo">
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="images/1.jpg" class="d-block carousel-img" alt="Image 1">
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="images/2.jpg" class="d-block carousel-img" alt="Image 2">
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="images/3.jpg" class="d-block carousel-img" alt="Image 3">
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
+
 
     <!-- About Me Modal -->
     <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">

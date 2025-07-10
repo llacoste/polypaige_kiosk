@@ -23,6 +23,20 @@ function resetTimer() {
   screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
 }
 
+function resizeViewport() {
+  const baseWidth = 1024;
+  const baseHeight = 768;
+
+  const scaleX = window.innerWidth / baseWidth;
+  const scaleY = window.innerHeight / baseHeight;
+  const scale = Math.min(scaleX, scaleY);
+
+  document.documentElement.style.setProperty('--scale-factor', scale);
+}
+
+window.addEventListener('resize', resizeViewport);
+window.addEventListener('load', resizeViewport);
+
 document.addEventListener('mousemove', resetTimer);
 document.addEventListener('keydown', resetTimer);
 document.addEventListener('touchstart', resetTimer);
@@ -48,3 +62,9 @@ document.querySelector('.ticket-outer.bg-blue')?.addEventListener('click', () =>
   const modal = new bootstrap.Modal(document.getElementById('portfolioModal'));
   modal.show();
 });
+
+document.addEventListener('touchstart', () => {
+  if (document.fullscreenEnabled && !document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+}, { once: true });
