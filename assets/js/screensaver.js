@@ -9,16 +9,18 @@ const screensaverDelay = 10000;
 const countdownSeconds = 5;     // countdown duration
 
 function showScreensaver() {
-  clearInterval(countdownInterval);
-  const countdown = document.getElementById('screensaverCountdown');
-  countdown.classList.add('fade-hidden');
-
   const landing = document.getElementById('landingContent');
   const screensaver = document.getElementById('screensaver');
   const screensaverContent = document.getElementById('screensaverContent');
+  const countdown = document.getElementById('screensaverCountdown');
 
   landing.classList.remove('fade-visible');
   landing.classList.add('fade-hidden');
+
+  if (countdown) {
+    countdown.classList.remove('fade-visible');
+    countdown.classList.add('fade-hidden');
+  }
 
   screensaver.style.display = 'block';
   void screensaverContent.offsetWidth;
@@ -92,3 +94,10 @@ function setupScreensaverActivityListeners() {
   document.addEventListener('keydown', resetTimer);
   document.addEventListener('touchstart', resetTimer);
 }
+
+window.addEventListener('load', () => {
+  const countdown = document.getElementById('screensaverCountdown');
+  if (countdown) {
+    countdown.classList.add('fade-hidden');
+  }
+});
