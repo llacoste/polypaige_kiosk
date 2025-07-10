@@ -1,25 +1,45 @@
+// Declare shared state once at the top
 let screensaverTimeout;
+let lastInteractionTime = Date.now();
 const screensaverDelay = 10000;
 
-function showScreensaver() {
-  // Hide the main content, show the screensaver
-  document.getElementById('landingContent').style.display = 'none';
-  document.getElementById('screensaver').style.display = 'block';
+let lastPointerX = null;
+let lastPointerY = null;
 
-  // Close all open modals
-  const openModals = document.querySelectorAll('.modal.show');
-  openModals.forEach(modalEl => {
-    const modalInstance = bootstrap.Modal.getInstance(modalEl);
-    if (modalInstance) {
-      modalInstance.hide();
-    }
+function showScreensaver() {
+  console.log(`[showScreensaver] triggered @ ${new Date().toLocaleTimeString()}`);
+
+  const landing = document.getElementById('landingContent');
+  const screensaver = document.getElementById('screensaver');
+
+  landing.style.display = 'none';
+  screensaver.style.display = 'block';
+
+  document.querySelectorAll('.modal.show').forEach(modalEl => {
+    bootstrap.Modal.getInstance(modalEl)?.hide();
   });
 }
 
-function resetTimer() {
+function resetTimer(event) {
+  if (event?.type === 'pointermove') {
+    // Only reset if the pointer actually moved
+    if (event.clientX === lastPointerX && event.clientY === lastPointerY) return;
+    lastPointerX = event.clientX;
+    lastPointerY = event.clientY;
+  }
+
+  console.log(`[resetTimer] Event: ${event?.type} @ ${new Date().toLocaleTimeString()}`);
+
+  const now = Date.now();
+  const timeSinceLast = now - lastInteractionTime;
+  if (timeSinceLast < 100) return;
+
+  lastInteractionTime = now;
   clearTimeout(screensaverTimeout);
+
   document.getElementById('screensaver').style.display = 'none';
   document.getElementById('landingContent').style.display = 'flex';
+
   screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
 }
 
@@ -34,17 +54,17 @@ function resizeViewport() {
   document.documentElement.style.setProperty('--scale-factor', scale);
 }
 
+// Scale on load and resize
 window.addEventListener('resize', resizeViewport);
 window.addEventListener('load', resizeViewport);
 
-document.addEventListener('mousemove', resetTimer);
+// Activity events
+document.addEventListener('pointermove', resetTimer);
 document.addEventListener('keydown', resetTimer);
 document.addEventListener('touchstart', resetTimer);
 
-// Start screensaver immediately on load
+// Launch screensaver immediately
 showScreensaver();
-
-// Also set a timeout to re-show it after delay in case of interaction
 screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
 
 // Modal click handlers
@@ -63,6 +83,7 @@ document.querySelector('.ticket-outer.bg-blue')?.addEventListener('click', () =>
   modal.show();
 });
 
+// Trigger fullscreen on first touch
 document.addEventListener('touchstart', () => {
   if (document.fullscreenEnabled && !document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
