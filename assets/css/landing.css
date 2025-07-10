@@ -12,11 +12,35 @@
 }
 
 .portfolio-iframe-container {
-  height: 80vh;
+  width: 100%;
+  height: 80vh; /* Adjust as needed */
+  overflow: hidden;
 }
 
+/* Limit the modal height and make it scrollable if necessary */
+.modal-dialog.modal-xl {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Modal body gets flexible space */
+.modal-body.portfolio-iframe-container {
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Iframe fills modal body */
 .portfolio-iframe {
   width: 100%;
   height: 100%;
   border: none;
+  display: block;
 }
