@@ -25,7 +25,11 @@
   align-items: center;
 }
 
-.carousel-inner,
+.carousel-inner{
+  height: 100%;
+  width: 100%;
+}
+
 .carousel-item {
   height: 100%;
   width: 100%;
@@ -38,9 +42,16 @@
   max-height: 100%;
 }
 
+.carousel-img-polaroid {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+}
+
 .carousel-overlay-text {
   position: absolute;
-  top: 2rem;
+  top: 1rem; /* was 2rem */
   left: 50%;
   transform: translateX(-50%);
   font-size: 3rem;
@@ -49,4 +60,47 @@
   color: #4a79a5;
   pointer-events: none;
   z-index: 10;
+  margin-bottom: 0.25rem;
+}
+
+.polaroid-frame {
+  background: white;
+  padding: 1rem 1rem 1.25rem 1rem; /* reduced bottom padding */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 475px;  /* larger overall width */
+  height: 550px; /* larger overall height */
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 3rem auto 0 auto;
+}
+
+.polaroid-frame img,
+.polaroid-frame video {
+  object-fit: cover;
+  width: 100%;
+  height: 82%;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #ddd;
+}
+
+.polaroid-caption-container {
+  height: 18%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #444;
+  margin: 0;
 }
