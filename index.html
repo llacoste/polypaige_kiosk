@@ -21,7 +21,7 @@
 
   <body>
     <div class="viewport-wrapper">
-      <div class="viewport-content" id="landingContent">
+      <div id="landingContent" class="viewport-content fade-transition fade-visible">
         <div class="landing" id="landingContent">
           <div class="container-fluid">
             <div class="row">
@@ -77,9 +77,9 @@
     </div>
 
     <!-- Screensaver -->
-    <div id="screensaver" class="viewport-wrapper" onclick="resetTimer()">
-      <div class="viewport-content d-flex flex-column justify-content-center align-items-center screensaver-content">
-        
+    <div id="screensaver" class="viewport-wrapper" style="display: none" onclick="resetTimer()">
+      <div id="screensaverContent" class="viewport-content d-flex flex-column justify-content-center align-items-center screensaver-content fade-transition fade-visible">
+        <!-- Screensaver content here -->
         <div class="carousel-overlay-text">Touch to learn more</div>
 
         <div class="carousel-wrapper">

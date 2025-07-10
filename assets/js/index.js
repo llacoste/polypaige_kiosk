@@ -7,13 +7,19 @@ let lastPointerX = null;
 let lastPointerY = null;
 
 function showScreensaver() {
-  console.log(`[showScreensaver] triggered @ ${new Date().toLocaleTimeString()}`);
-
   const landing = document.getElementById('landingContent');
   const screensaver = document.getElementById('screensaver');
+  const screensaverContent = document.getElementById('screensaverContent');
 
-  landing.style.display = 'none';
+  landing.classList.remove('fade-visible');
+  landing.classList.add('fade-hidden');
+
   screensaver.style.display = 'block';
+  // trigger reflow so the transition works smoothly
+  void screensaverContent.offsetWidth;
+
+  screensaverContent.classList.remove('fade-hidden');
+  screensaverContent.classList.add('fade-visible');
 
   document.querySelectorAll('.modal.show').forEach(modalEl => {
     bootstrap.Modal.getInstance(modalEl)?.hide();
@@ -22,23 +28,31 @@ function showScreensaver() {
 
 function resetTimer(event) {
   if (event?.type === 'pointermove') {
-    // Only reset if the pointer actually moved
     if (event.clientX === lastPointerX && event.clientY === lastPointerY) return;
     lastPointerX = event.clientX;
     lastPointerY = event.clientY;
   }
 
-  console.log(`[resetTimer] Event: ${event?.type} @ ${new Date().toLocaleTimeString()}`);
-
   const now = Date.now();
-  const timeSinceLast = now - lastInteractionTime;
-  if (timeSinceLast < 100) return;
+  if (now - lastInteractionTime < 100) return;
 
   lastInteractionTime = now;
   clearTimeout(screensaverTimeout);
 
-  document.getElementById('screensaver').style.display = 'none';
-  document.getElementById('landingContent').style.display = 'flex';
+  const landing = document.getElementById('landingContent');
+  const screensaver = document.getElementById('screensaver');
+  const screensaverContent = document.getElementById('screensaverContent');
+
+  screensaverContent.classList.remove('fade-visible');
+  screensaverContent.classList.add('fade-hidden');
+
+  landing.classList.remove('fade-hidden');
+  landing.classList.add('fade-visible');
+
+  // Hide screensaver after fade completes (500ms)
+  setTimeout(() => {
+    screensaver.style.display = 'none';
+  }, 500);
 
   screensaverTimeout = setTimeout(showScreensaver, screensaverDelay);
 }
