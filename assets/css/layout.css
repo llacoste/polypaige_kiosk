@@ -1,0 +1,41 @@
+.viewport-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.viewport-content {
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--scale-factor));
+  transform-origin: center center;
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.carousel-heading-text {
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #cce5ff;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
